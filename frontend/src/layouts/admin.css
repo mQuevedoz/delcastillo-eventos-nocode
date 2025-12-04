@@ -1,0 +1,151 @@
+/* Layout base */
+.admin-shell{
+  display:grid;
+  grid-template-columns: 240px 1fr;
+  min-height:100vh;
+  background:#f6f7f9;
+}
+
+/* Sidebar */
+.admin-aside {
+  background: #FFB86B;
+  border-right: 1px solid #eaa25c;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: #222;
+}
+
+.admin-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  letter-spacing:.3px;
+}
+.admin-brand img{
+  height:36px;
+  width:auto;
+  object-fit:contain;
+}
+
+.admin-brand span {
+  color: #222;
+}
+
+.admin-nav{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-top:8px;
+}
+
+.admin-link{
+  padding:10px 12px;
+  border-radius:8px;
+  color:#222;
+  text-decoration:none;
+  font-weight:600;
+  opacity:.9;
+}
+.admin-link:hover{
+  background: rgba(255,255,255,.3);
+}
+.admin-link.active{
+  background: #fff;
+  color: #d35400;
+}
+
+/* Logout */
+.admin-logout{
+  margin-top: auto;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #eaa25c;
+  background: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.admin-logout:hover{
+  background: #ffe9e0;
+}
+
+/* Área de contenido */
+.admin-main{
+  padding:22px;
+}
+/* === Card genérica para listados === */
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.card-header {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.card-table {
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.card-table thead th {
+  background: #fbb169;           /* naranja suave */
+  color: #4a3520;                 /* texto más oscuro */
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 600;
+}
+
+.card-table tbody td {
+  padding: 10px 12px;
+  border-top: 1px solid #f2f2f2;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.card-total {
+  color: #e63946;                
+  font-weight: 700;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pager-btn {
+  border: 1px solid #f0b3a7;
+  background: #ffefe8;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.pager-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.pager-page {
+  min-width: 64px;
+  text-align: center;
+  font-weight: 600;
+}

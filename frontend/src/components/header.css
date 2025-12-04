@@ -1,0 +1,293 @@
+:root{
+  --brand:#FFB86B; --brand-600:#FF9F43;
+  --ink:#2a2a2a; --bg:#ffffff; --topbar:#fff7ee;
+  --shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+/* Header sticky */
+.site-header{ position:sticky; top:0; z-index:1000; background:var(--bg); }
+.site-header.is-scrolled .navwrap{ box-shadow:var(--shadow); }
+
+/* Topbar (muy compacta) */
+.topbar{ background:var(--topbar); font-size:.85rem; color:var(--ink); }
+.topbar .container{ display:flex; justify-content:space-between; align-items:center; gap:10px; padding:2px 16px; }
+.topbar a{ color:var(--ink); text-decoration:none; opacity:.9; }
+.topbar a:hover{ opacity:1; }
+
+/* NAV principal */
+.container{ max-width:1200px; margin:0 auto; padding:0 16px; }
+
+.navwrap{ padding:0; } 
+.navline{
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  min-height:44px;        
+  padding:6px 0;          
+}
+
+/* Logo más pequeño */
+.logo{ text-decoration:none; color:var(--ink); }
+.logo-mark{ font-weight:800; letter-spacing:.5px; font-size:1.05rem; }
+.logo img{
+  height:100px;            
+  width:auto;
+  object-fit:contain;
+  display:block;
+}
+
+/* Menú */
+.menu{ display:flex; align-items:center; gap:18px; }
+.menu a{ color:var(--ink); text-decoration:none; font-weight:600; opacity:.9; }
+.menu a.active, .menu a:hover{ opacity:1; }
+.menu .dropbtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+  opacity: .9;
+}
+.menu .dropbtn :hover,
+.menu .dropbtn:focus {
+    opacity: 1;
+}
+
+/* CTA */
+.btn-cta{
+  background:var(--brand); color:#000;
+  padding:8px 12px;       
+  border-radius:999px; border:1px solid rgba(0,0,0,.06);
+  font-weight:700;
+}
+.btn-cta:hover{ background:var(--brand-600); }
+
+/* Dropdown */
+.dropdown{ position:relative; }
+.dropbtn{ background:transparent; border:0; color:var(--ink); font-weight:700; cursor:pointer; }
+.dropdown-menu{
+  position:absolute; top:calc(100% + 6px); left:0;   
+  background:#fff; border:1px solid #eee; border-radius:12px;
+  box-shadow:var(--shadow); display:none; min-width:200px; padding:8px; z-index:1001;
+}
+.dropdown-menu a{ display:block; padding:10px 12px; border-radius:8px; }
+.dropdown-menu a:hover{ background:#f8f8f8; }
+.dropdown-menu.show{ display:block; }
+
+/* Hamburger (mobile) */
+.hamburger{ display:none; position:relative; width:28px; height:22px; border:0; background:transparent; }
+.hamburger span{ position:absolute; left:0; right:0; height:3px; background:#222; border-radius:2px; transition:.2s }
+.hamburger span:nth-child(1){ top:0 } .hamburger span:nth-child(2){ top:9px } .hamburger span:nth-child(3){ bottom:0 }
+.hamburger.is-open span:nth-child(1){ transform:translateY(9px) rotate(45deg) }
+.hamburger.is-open span:nth-child(2){ opacity:0 }
+.hamburger.is-open span:nth-child(3){ transform:translateY(-9px) rotate(-45deg) }
+
+/* Responsive */
+@media (max-width:900px){
+  .hamburger{ display:block; }
+  .menu{
+    position:fixed; top:0; right:0; bottom:0; width:78%;
+    background:#fff; box-shadow:-8px 0 24px rgba(0,0,0,.12);
+    padding:80px 20px 20px; flex-direction:column; align-items:flex-start; gap:16px;
+    transform:translateX(100%); transition:transform .25s ease;
+  }
+  .menu.open{ transform:translateX(0); }
+  .dropdown:hover .dropdown-menu{ display:none; }
+  .dropdown-menu{ position:relative; top:0; border:0; box-shadow:none; padding:4px 0; }
+}
+
+/* === Casas (reutilizable y global) === */
+
+/* Franja naranja (hero) */
+.page-hero {
+  background: linear-gradient(0deg, #f9c28f 0%, #f6b777 100%);
+  padding: 48px 0;
+  border-radius: 0 0 12px 12px;
+}
+.page-hero h2 { font-weight: 700; }
+
+/* Contenedor general debajo del hero */
+.casas-wrapper { padding: 24px 0 48px; }
+
+/* Filtro compacto */
+.casas-filtros {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0 20px;
+  max-width: 520px;
+}
+
+/* Grid responsive de cards */
+.casas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* Card */
+.house-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.house-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.house-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+.house-card .btn { margin-top: auto; }
+.house-meta {
+  list-style: none;
+  padding-left: 0;
+  margin: 8px 0 12px;
+}
+.house-meta li { font-size: 0.9rem; }
+
+/* Modal simple sin JS externo */
+.modal-backdrop-custom {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.5);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; z-index: 1050;
+}
+.modal-card {
+  background: #fff; border-radius: 14px; padding: 18px;
+  max-width: 1000px; width: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+/* Carousel */
+/* ====== GALERÍA: tamaño estable y sin saltos ====== */
+
+/* Contenedor del carrusel: bloque con relación de aspecto fija. 
+   Usa aspect-ratio (moderno) + límite por viewport para no desbordar. */
+.carousel-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* fija la “forma” del cuadro */
+  max-height: 60vh;       /* no más del 60% de la altura de pantalla */
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f3f3f3;    /* color de fondo mientras carga */
+}
+
+/* En pantallas pequeñas puedes usar una relación más “alta” */
+@media (max-width: 768px) {
+  .carousel-box { aspect-ratio: 4 / 3; max-height: 50vh; }
+}
+
+/* La imagen se pega al cuadro y lo rellena SIEMPRE */
+.carousel-box img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;      /* rellena sin deformar, recortando si hace falta */
+  display: block;         /* evita gaps por inline images */
+  user-select: none; -webkit-user-drag: none;
+}
+
+/* Botones de navegación: encima de la imagen */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 3;               /* por encima de la imagen */
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+
+.carousel-btn.left  { left: 12px; }
+.carousel-btn.right { right: 12px; }
+.carousel-btn:hover { background: rgba(0,0,0,.7); }
+
+/* Contenedor de miniaturas con espacio */
+.thumbs {
+  display: flex;
+  gap: 8px;           /* ← separa thumbs */
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.thumbs .thumb {
+  width: 84px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: 2px solid transparent;
+  outline-offset: 2px;  /* crea aire sin mover layout */
+  transition: outline-color .15s;
+}
+.thumbs .thumb:hover { outline-color: #e9a35a; }
+.thumbs .thumb.active { outline-color: #f0a14b; }
+
+
+/* === HERO consistente (forzado) === */
+.page-hero {
+  background: linear-gradient(0deg, #f9c28f 0%, #f6b777 100%);
+  padding: 64px 0;                 /* un poco más alto como en otras secciones */
+  border-radius: 0 0 12px 12px;
+}
+.page-hero .container { max-width: 1200px; }
+.page-hero .container h2 {
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: .2px;
+  font-size: clamp(30px, 2.6vw + 12px, 40px) !important; /* gana a Bootstrap */
+  color: var(--ink);
+  margin: 0 0 6px 0;
+}
+.page-hero .container p {
+  font-size: 1rem !important;
+  opacity: .9;
+  margin: 0;
+}
+
+/* Título de la casa más protagónico */
+.house-title {
+  font-size: 1.05rem;       /* base */
+  font-weight: 700;
+}
+@media (min-width: 768px){
+  .house-title { font-size: 1.15rem; }
+}
+
+/* Compactar y alinear mejor el contenido de las cards de servicios */
+.service-card .card-body { padding: 12px; }
+.service-card .card-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+.service-card p { margin-bottom: 6px !important; } /* Reduce la separación entre textos */
+
+/* Chips de características (sin emojis) */
+.chip {
+  background: #f7f7f7;
+  border: 1px solid #eee;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 0.82rem;
+}
+
+/* Recorte de descripción en las cards de servicios */
+.clamp-3 {
+  display: -webkit-box;           
+  -webkit-line-clamp: 3;          
+  line-clamp: 3;                  
+  -webkit-box-orient: vertical;   
+  overflow: hidden;               
+  text-overflow: ellipsis;        
+}
+
+

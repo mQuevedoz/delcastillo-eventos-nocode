@@ -1,0 +1,7 @@
+.box { border:1px solid var(--border); border-radius:14px; padding:16px; background:#fff; box-shadow: var(--shadow); }
+.placeholder { display: flex; align-items: center; justify-content: center; height: 100%; color: #888; font-size: 0.9rem; }
+
+.form .row { display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
+.err { color:#e03131; font-size:.85rem; }
+.link { text-decoration:none; color:inherit; }
+.price { font-weight: bold; font-size: 1.1rem; color: #e67e22; }

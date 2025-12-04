@@ -1,0 +1,347 @@
+/* === ESTILOS GENERALES === */
+body {
+  font-family: Arial, sans-serif;
+  background: #fef6f1;
+}
+
+.card-clientes {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+/* === ENCABEZADO === */
+.header-clientes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-nuevo {
+  background: #ffb86b;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-nuevo:hover {
+  background: #ffa852;
+  transform: scale(1.03);
+}
+
+/* === BUSCADOR === */
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.buscador-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buscador-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  color: #5a2d0c;
+}
+
+.buscador-input::placeholder {
+  color: #a0522d;
+}
+
+/* === FORMULARIO SIMPLE === */
+.formulario {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  width: 300px;
+  border-radius: 8px;
+}
+
+/* === TABLA DE CLIENTES === */
+.tabla-clientes {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Encabezado */
+.tabla-clientes thead tr {
+  background-color: #ffb86b;
+}
+
+.tabla-clientes th {
+  text-align: left;
+  padding: 14px 18px;
+  font-weight: 700;
+  color: #2c1a0b;
+  font-size: 0.95rem;
+}
+
+/* Filas */
+.tabla-clientes tbody tr {
+  border-bottom: 1px solid #f1e0d0;
+  transition: background 0.2s ease;
+}
+
+.tabla-clientes tbody tr:hover {
+  background-color: #fff8f3;
+}
+
+/* Celdas */
+.tabla-clientes td {
+  padding: 14px 18px;
+  color: #3a2a1a;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+.direccion {
+  font-size: 0.85em;
+  color: #777;
+}
+
+/* Imágenes en tablas */
+.tabla-clientes td img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* === EFECTO HOVER DE FILAS === */
+tbody tr:hover {
+  background-color: #fff7f0;
+  transition: background 0.2s ease;
+}
+
+/* === MODAL === */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* === FORMULARIO ELEGANTE (MODAL) === */
+.form-elegante {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 32px 36px;
+  width: 550px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.25s ease-out;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Título */
+.form-elegante h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 1.8rem;
+}
+
+/* Grid de inputs */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 22px;
+  margin-bottom: 1.6rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin-bottom: 6px;
+}
+
+.campo input {
+  border: 1.5px solid #e3e3e3;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  background: #fafafa;
+  transition: 0.2s;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: #ffb86b;
+  background: #fffaf4;
+  box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.25);
+}
+
+.campo input::placeholder {
+  color: #b2a59b;
+}
+
+/* === BOTONES MODAL === */
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn-cancelar,
+.btn-guardar {
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Botón cancelar */
+.btn-cancelar {
+  background: #fff;
+  border: 1.5px solid #d6d6d6;
+  color: #2e2e2e;
+}
+
+.btn-cancelar:hover {
+  background: #f7f7f7;
+  transform: scale(1.03);
+}
+
+/* Botón guardar */
+.btn-guardar {
+  background: #ffb86b;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+}
+
+.btn-guardar:hover {
+  background: #ffa852;
+  transform: scale(1.03);
+}
+
+/* === BOTONES DE ACCIÓN CON ÍCONOS === */
+.accion {
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  margin: 0 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  width: 42px;
+  height: 42px;
+  background: #fff5ec;
+  box-shadow: inset 0 0 0 1.5px #e4b48c;
+}
+
+/* Íconos Material */
+.accion .material-icons {
+  font-size: 22px;
+  color: #8b4513;
+  transition: color 0.2s ease;
+}
+
+/* Hover */
+.accion:hover {
+  background: #ffeede;
+  transform: scale(1.07);
+}
+
+.accion:hover .material-icons {
+  color: #6b2c00;
+}
+
+/* === SECCIÓN DE REPORTE === */
+.reporte-section {
+  background: #fff7f0;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 0 0 1.5px #ffd6a0;
+}
+
+.reporte-section h3 {
+  color: #5a2d0c;
+  margin-bottom: 10px;
+}
+
+.reporte-filtros {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.reporte-filtros input {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 10px;
+  width: 80px;
+  font-size: 0.9rem;
+}
+
+.btn-reporte {
+  background: #7ac27a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-reporte:hover {
+  background: #5da75d;
+  transform: scale(1.03);
+}
