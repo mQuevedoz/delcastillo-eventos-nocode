@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # Base de datos MongoDB
+  mongo:
+    image: mongo:6
+    container_name: infoweb-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # Tu Backend (API)
+  api:
+    build: ./backend
+    container_name: infoweb-api
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGO_URI=mongodb://mongo:27017/infoweb
+      - FRONTEND_ORIGIN=http://localhost:5173
+      # Agrega aquí tu JWT_SECRET si lo usas
+    depends_on:
+      - mongo
+
+  # Tu Frontend (React)
+  client:
+    build: ./frontend
+    container_name: infoweb-client
+    ports:
+      - "5173:80" # Mapeamos el puerto 80 del contenedor al 5173 de tu máquina
+    depends_on:
+      - api
+
+volumes:
+  mongo_data:
